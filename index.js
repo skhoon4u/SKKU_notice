@@ -1,7 +1,7 @@
 const axios = require("axios"); // axios 모듈
 const cheerio = require("cheerio"); // cheerio 모듈
 
-/** 전체 페이지 크롤링 함수 what_page = int 페이지 개수, sort = boolean 정렬 옵션*/
+/** 전체 페이지 크롤링 함수 what_page = int 페이지 개수, sort = 1 : 오름차순 / 2: 내림차순 정렬 옵션*/
 async function all_crawler(what_page, sort) {
   const all_pages = []; // 전체 페이지 배열
 
@@ -47,19 +47,28 @@ async function all_crawler(what_page, sort) {
   console.log(all_pages.length); // 전체 페이지 배열 길이
 
   // 정렬 로직
-  if (sort) {
+  if (sort === 1) { // 오름차순 정렬
     all_pages.sort(function(a, b) {
       return b.views - a.views;
     });
     console.log("정렬 완료");
 
     return all_pages; // 정렬된 결과 반환
-  } else {
+  } 
+  else if (sort === 2) { // 내림차순 정렬
+    all_pages.sort(function(a, b) {
+      return a.views - b.views;
+    });
+    console.log("정렬 완료");
+
+    return all_pages; // 정렬된 결과 반환
+  }
+  else {
     return all_pages; // 정렬되지 않은 결과 반환
   }
 }
 
-all_crawler(10, false).then((result)=>{
+all_crawler(10, 2).then((result)=>{
     result.forEach((item)=>{
       console.log(item.title);
       console.log(item.views);
