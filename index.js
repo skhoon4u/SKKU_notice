@@ -23,7 +23,11 @@ async function all_crawler(what_page, sort) {
       const viewarray = $(".board-mg-l10"); // 조회수
 
       for (let i = 0; i < 10; i++) {
-        all_pages.push({ title : $(textarray[i]).text().trim(), views : +($(viewarray[i]).text().trim()) }); // 전체 페이지 배열에 데이터 저장
+        all_pages.push({ 
+          title : $(textarray[i]).text().trim(),
+          views : +($(viewarray[i]).text().trim()),
+          links : $(textarray[i]).attr('href').trim()
+        }); // 전체 페이지 배열에 데이터 저장
       }
     } catch (error) {
       console.error('Crawling failed:', error);
@@ -72,6 +76,7 @@ all_crawler(10, 2).then((result)=>{
     result.forEach((item)=>{
       console.log(item.title);
       console.log(item.views);
+      console.log("https://www.skku.edu/skku/campus/skk_comm/notice01.do" + item.links);
       console.log("------------------------------------");
     });
 }); // 10페이지 크롤링 후 조회수 정렬
