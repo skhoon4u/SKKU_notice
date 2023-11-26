@@ -1,0 +1,28 @@
+{
+    "name": "SKKU_notice",
+    "description": "SKKU Notice Sorting Popup",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*"
+            ],
+            "js": [
+                "contentScript.js"
+            ]
+        }
+    ]
+}
