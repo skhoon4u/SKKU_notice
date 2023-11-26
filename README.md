@@ -1,1 +1,1 @@
-# Korean STT Chrome Extension Project
+# SKKU Notice Popup Chrome Extension
