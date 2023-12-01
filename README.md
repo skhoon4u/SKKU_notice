@@ -9,6 +9,6 @@ How to use extension
 1. open chrome browser
 2. go to chrome://extensions
 3. turn on 'developer mode' on the top-right corner
-4. click load folder on the top-left corner and upload the whole folder
+4. click load folder on the top-left corner and upload the whole folder (skku_notice_extension)
 5. you are ready to go!
 
